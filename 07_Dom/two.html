@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Learning</title>
+</head>
+<body style = "background-color: #212121; color: aliceblue;">
+    <div class="parent">
+        <div class="child">Child One</div>
+        <div class="child">Child Two</div>
+        <div class="child">Child Three</div>
+        <div class="child">Child Four</div>
+    </div>
+</body>
+<script>
+  const parent =  document.querySelector('.parent')
+//   console.log(parent);
+//   console.log(parent.children);
+//   console.log(parent.children[1].innerHTML);
+
+// for(let i = 0; i < parent.children.length; i ++){
+//     console.log(parent.children[i].innerHTML);
+// }
+
+parent.children[3].style.color = "green"
+// console.log(parent.firstElementChild);//firstELementChild property
+// console.log(parent.lastElementChild);
+
+const child1 = document.querySelector('.child')
+console.log(child1);//parent to child traverse
+// console.log(child1.parentElement);//child to parent traverse
+// console.log(child1.nextElementSibling);
+
+console.log("Nodes: ",  parent.childNodes );
+</script>
+</html>

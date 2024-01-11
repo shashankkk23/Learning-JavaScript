@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Part Four</title>
+  </head>
+  <body style="background-color: #212121; color: aliceblue">
+
+    <ul class="language">
+      <li>JavaScript</li>
+    </ul>
+   
+  </body>    
+  <script>
+
+    function addLanguage(languageName) {
+      const li = document.createElement("li");
+      li.innerHTML = `${languageName}`;
+      document.querySelector(".language")
+      .appendChild(li);
+    }
+    addLanguage("python");
+    addLanguage("Java");
+
+
+//this 👇🏽 approach is better then above function to add element
+function AaddOptimizedEle(lang){
+ const addLang = document.createElement('li')
+addLang.appendChild(document.createTextNode(lang))
+ document.querySelector('.language').appendChild(addLang)//append child will add new child to its parent
+}
+AaddOptimizedEle("shashank")
+
+//Edit
+
+const edit = document.querySelector("li:nth-child(3)")
+// edit.innerHTML = "tiwari"
+const newLi = document.createElement('li')
+newLi.textContent = "Tiwari"
+edit.replaceWith(newLi) //it will replace/edit element
+
+
+//anotherMethod of Edit ELement
+const firstLang = document.querySelector('li:first-child')
+firstLang.outerHTML = '<li>React </li>'
+
+// Remove Element
+const lastLang = document.querySelector('li:last-child')
+lastLang.remove()
+  </script>
+</html>
