@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LexicalScope</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function outer(){
+        let name = "shashank";
+        function inner(){
+            console.log("inner", name);
+        }  //lexical scope  means  child fn has access to its parent  
+        inner()
+    }
+outer()
+console.log("outer", name);
+</script>
+</html>

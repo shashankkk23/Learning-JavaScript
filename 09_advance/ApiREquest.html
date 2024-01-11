@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Api-Request in JavaScript</title>
+    <!-- CSS For Card -->
+    <style>
+      .card {
+        /* Add shadows to create the "card" effect */
+        width: 500px;
+        height: 600px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+      }
+      .container {
+        padding: 2px 16px;
+      }
+    </style>
+  </head>
+  <body style="background-color: #212121">
+    <!-- Card HTML -->
+    <!-- <div class="card">
+      <img src="img_avatar.png" alt="Avatar" style="width: 100%" />
+      <div class="container">
+        <h4>John Doe</h4>
+        <p>Architect & Engineer</p>
+      </div>
+    </div>
+
+    JavaScript -->
+    <script>
+      const requestUrl = "https://api.github.com/users/shashankkk23";
+      const xhr = new XMLHttpRequest(); // its a method it has inbuilt readystate etc... //we have to create fresh object with new keyword
+      xhr.open("GET", requestUrl);//it sends request it avail after creating XMLHTTpRequest type | it takes 2 parameters one is mehtod(which type of request u wanna send like GET, POST, PUT,and payloads aswell) and secondis(string api link or variable refernce where api link stored)
+      xhr.onreadystatechange = function () { //it will continuosly monitor state //it takes a function like if state is changes then what to do..
+        console.log(xhr.readyState);
+        if (xhr.readyState === 4) { //it check if readystate is equal to 4 then we have to start executing its inner code]]
+            // const data = this.responseText// here we are cerating data varible to this.responseText
+            const data = JSON.parse(xhr.responseText);//here we are converting responseText to JSON, after this the typeof data is object and we simply see after calling like object
+            // console.log(this.responseText);//this keyword work as currentContext  ||when we are talking about current context then we use thus keyword
+            console.log(data.followers);
+        }
+
+    };
+    xhr.send();//it calls request after open()
+    </script>
+  </body>
+</html>

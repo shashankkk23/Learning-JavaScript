@@ -1,0 +1,36 @@
+<!-- SetTimeOut and CLearTimeOut -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS SetTimeOut</title>
+</head>
+<body>
+    <h1>Js SetTimeOut </h1>
+    <button id="stop">stop</button>
+
+</body>
+<script>
+
+const sayShashank =  function (){
+    console.log("Shashank Tiwari");
+}
+
+const changeText = () =>{
+    document.querySelector('h1').innerHTML = "Hello Shashank"
+}
+const changeME = setTimeout(changeText, 5000) //reference in set timeout
+
+
+document.querySelector('#stop').addEventListener('click', function(){
+    clearTimeout(changeME)
+console.log("stopped");
+})
+
+    // setTimeout( ( ) =>{   //settimeout only runs once with its given time
+    //     console.log("shashank");
+    // },3000)
+</script>
+</html>

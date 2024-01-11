@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events</title>
+</head>
+<body style = "background-color: #212121;">
+    <h2 style = "color: aliceblue">Amazing Images</h2>
+    <ul id="images">
+        <li><img width= "200px" height = "200px" id="owl" src="https://images.pexels.com/photos/2115984/pexels-photo-2115984.jpeg?auto=compress&cs=tinysrgb&w=600" alt=""></li>
+        <li><img width= "200px" height = "200px" id="river" src="https://images.pexels.com/photos/19554468/pexels-photo-19554468/free-photo-of-river-in-valley.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" ></li>
+        <li><img width= "200px" height = "200px" id="codes" src="https://images.pexels.com/photos/943096/pexels-photo-943096.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" ></li>
+        <li><img width= "200px" height = "200px" id="lion" src="https://images.pexels.com/photos/2220336/pexels-photo-2220336.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" ></li>
+        <li><img width= "200px" height = "200px" id="jaguar" src="https://images.pexels.com/photos/17648458/pexels-photo-17648458/free-photo-of-a-jaguar-lying-on-a-wooden-construction-at-the-zoo.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" ></li>
+        <li><a style = "color: aliceblue" href="https://google.com" id="google">google</a></li>
+    </ul>
+
+    <!-- jaVAscRIPT NOTES -->
+<!-- //attachEvent- it worked on internet explore in early times
+//jQuery(Framework) - it has on EventListner -->
+
+<!-- JavaScript's All Events runs Sequeancly/javaScript is sequencly run language // there are some exception case as well in events  
+
+2 = dont inject events directly in html 
+
+3 = browserEvent
+4 = Environment Event  = it means ex: where mouse clicked, which position was in mouse
+
+5 = event propogation has two context Eventbubbling and Eventcapturing;
+
+-eventBubbling: it goes up from down(bottom top top)
+-Eventcapturing: it goes top to bottom(down from up)
+-Eventcapturing: value is true
+event propogation = it work's INSIDE TO OUTSIDE 
+
+
+-->
+
+
+<script>
+    // document.querySelector('#owl').onclick = function (){  
+    //     alert("owlCLiked")
+    // } this method gives less features this is also not a good aproach to inject 
+
+// bestApproach using AddEventLister👇🏽
+//read more event names from google or mdn docs
+//we have to write 3rd parameter as well after ending scope it's value is FALSE by default its called bubbling
+// document.querySelector('#owl').addEventListener('mouseover', () =>{
+//     alert("owl clicked again")
+// } )
+
+document.querySelector('#owl').addEventListener('mouseover', (e) =>{
+
+} )
+// the parameter "e" in arrow function(line number 43) above is called EventObject and it's very imporatant read more about it on mdn docs  #read in detail about it 
+// EventObject
+
+document.querySelector('#owl').addEventListener('mouseover', (e) =>{
+console.log(e);
+},false )
+
+//basic Event type to read about #important
+// 1 - type
+// 2 - timeStamp
+// 3  - defaultPrevented : it prevent submission of anything to server
+// 4 - target 
+// 5 - sourceElement : very important
+// 6 - currentTarget
+
+// #interview perspective
+// 1 -clientX
+// 2 - clienty
+// 3 - off set 
+// 4 - screenX  screenY titltX tiltY
+// 5 -altKey, ctrlKey, ShiftKey
+// 6 - keycode do some research for it and make some projects
+
+
+// EventBubbling Example👇🏽
+document.querySelector('#images').addEventListener('click', (e) =>{
+// console.log("clicked inside the ul");
+},false)
+
+document.querySelector('#owl').addEventListener('click', (e) =>{
+console.log("Owl clicked");
+// e.stopPropagation//it will stop bubbling element will not go to upper element through bubbling
+},false)
+
+
+document.querySelector('#google').addEventListener('click', (e) =>{
+    e.preventDefault()
+    e.stopPropagation()//it will stop bubbling 
+    console.log("google clicked");
+},false)
+
+
+// some project/real world type study
+
+document.querySelector('#images').addEventListener('click', function(e){
+    console.log(e.target.tagName);//target is a events value// we can take more then one value"parentNode" it will target parent //tagname will give name  img or li
+    if(e.target.tagName === 'IMG'){
+   console.log(e.target.id);
+        let removeIt = e.target.parentNode
+        removeIt.remove()
+    }
+   
+
+   //second more type of removing 
+// removeIt.parentNode.removeChild((removeIt))
+},false)//false is  event propogation
+</script>
+
+
+</body>
+</html>

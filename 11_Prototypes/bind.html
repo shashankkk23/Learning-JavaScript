@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bind In js</title>
+</head>
+<body>
+    <button>Button</button>
+</body>
+<script>
+    // Bind 
+
+class React{
+    constructor(){
+        this.libary = 'React'
+        this.Server = "http//LocalHost/3000"
+
+        document.querySelector('button').addEventListener('click', this.handleClick.bind(this)) //bind is used to bind/attach a function to a particular context // bind attached all method and variable
+    }
+handleClick(){
+console.log("button clicked");
+console.log(this.Server);
+}
+
+    }
+    const app = new React()
+</script>
+</html>

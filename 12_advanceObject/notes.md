@@ -1,0 +1,1 @@
+## proposal for private properties es22 //read on google
